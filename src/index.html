@@ -5,50 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="wrap"></div>
-    <script src='./js/handlebars-v4.0.12.js' type='text/x-handlebars-template' id='content'>
-        {{#each}}
+    <div class="wrap">
+        
+    </div>
+    <script src='./js/libs/require.js'></script>
+    <script>
+    require(['./js/main.js'],function(){
+        require(['index'])
+    })
+    </script>
+    <script type="text/x-handlebars-template" id='content'>
+        <ol class='list'>
+        {{#each this}}
             <li>
-                <p>{{this.title}}</p>
-                <img src='{{this.img}}'/>
+                <h3>{{this.title}}</h3>
+                <img src="{{./this.img}}"/>
                 <p>{{this.price}}</p>
             </li>
         {{/each}}
-    </script>
-    <script>
-        var wrap= document.querySelector('.wrap')
-        var target = handlebars.complie(content);
-        var data = [
-                {
-                    title:"满300减30",
-                    img:"img/img1.jpg",
-                    price:489
-                },
-                {
-                    title:"满300减50",
-                    img:"img/img2.jpg",
-                    price:599
-                },
-                {
-                    title:"3件8折",
-                    img:"img/img3.jpg",
-                    price:99
-                },
-                {
-                    title:"满999减100",
-                    img:"img/img4.jpg",
-                    price:1299
-                },
-                {
-                    title:"满五免一",
-                    img:"img/img5.jpg",
-                    price:39
-                }
-            ]
-            var html = target.html;
-            wrap.html = html;
+    </ol>
     </script>
 </body>
 </html>

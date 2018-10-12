@@ -1,0 +1,11 @@
+//配置
+require.config({
+    //基本路径
+    baseUrl:'/js/',
+    paths:{
+        'jquery':'./libs/jquery.min',
+        'handlebars':'./libs/handlebars-v4.0.12',
+        'index':'./page/index',
+        'render':'./common/render'
+    }
+})
